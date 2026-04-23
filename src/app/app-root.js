@@ -16,8 +16,8 @@ export class AppRoot extends LitElement {
     main {
       min-height: 100vh;
       display: flex;
-      align-items: center;      /* centrado vertical */
-      justify-content: center;  /* centrado horizontal */
+      align-items: center;     
+      justify-content: center;  
       padding: 16px;
       box-sizing: border-box;
     }

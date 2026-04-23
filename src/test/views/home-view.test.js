@@ -1,5 +1,5 @@
 import { fixture, html, expect } from '@open-wc/testing';
-import '../../src/views/home-view.js';
+import '../../views/home-view.js';
 
 describe('home-view', () => {
   it('renderiza la vista home', async () => {

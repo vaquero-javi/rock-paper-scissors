@@ -1,5 +1,5 @@
 import { fixture, html, expect } from '@open-wc/testing';
-import '../../src/views/game-view.js';
+import '../../views/game-view.js';
 
 describe('game-view', () => {
   const player = {
@@ -25,8 +25,13 @@ describe('game-view', () => {
       html`<game-view .player=${player} .round=${round}></game-view>`
     );
 
-    expect(element.shadowRoot.textContent).to.contain('Mario');
-    expect(element.shadowRoot.textContent).to.contain('5');
+    await element.updateComplete;
+
+    const scoreBoard = element.shadowRoot.querySelector('score-board');
+    await scoreBoard.updateComplete;
+
+    expect(scoreBoard.shadowRoot.textContent).to.contain('Mario');
+    expect(scoreBoard.shadowRoot.textContent).to.contain('5');
   });
 
   it('emite play-move al seleccionar jugada', async () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getRoundResult } from '../../src/domain/game-rules.js';
+import { getRoundResult } from '../../domain/game-rules.js';
 
 describe('getRoundResult', () => {
   it('piedra gana a tijera', () => {

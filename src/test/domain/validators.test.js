@@ -1,8 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  normalizePlayerName,
-  validatePlayerName
-} from '../../src/domain/validators.js';
+import { normalizePlayerName, validatePlayerName } from '../../domain/validators.js';
 
 describe('validators', () => {
   it('valida nombre correcto', () => {

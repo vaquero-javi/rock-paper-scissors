@@ -1,5 +1,5 @@
 import { fixture, html, expect } from '@open-wc/testing';
-import '../../src/components/player-form.js';
+import '../../components/player-form.js';
 
 describe('player-form', () => {
   it('renderiza input y botón', async () => {
@@ -26,12 +26,19 @@ describe('player-form', () => {
   });
 
   it('muestra error con nombre inválido', async () => {
-    const element = await fixture(html`<player-form></player-form>`);
-    const form = element.shadowRoot.querySelector('form');
+  const element = await fixture(html`<player-form></player-form>`);
+  const form = element.shadowRoot.querySelector('form');
 
-    form.dispatchEvent(new Event('submit'));
+  form.dispatchEvent(
+    new Event('submit', {
+      bubbles: true,
+      cancelable: true
+    })
+  );
 
-    const error = element.shadowRoot.querySelector('.error');
-    expect(error.textContent).to.contain('obligatorio');
-  });
+  await element.updateComplete;
+
+  const error = element.shadowRoot.querySelector('.error');
+  expect(error.textContent).to.contain('obligatorio');
+});
 });
